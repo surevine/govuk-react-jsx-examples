@@ -5,7 +5,7 @@ import { HelloWorld } from './HelloWorld';
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Template>
         <Route exact path="/">
           <HelloWorld />
