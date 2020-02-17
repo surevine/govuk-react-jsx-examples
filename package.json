@@ -1,5 +1,6 @@
 {
   "name": "govuk-react-jsx-examples",
+  "homepage": "/govuk-react-jsx-examples",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
