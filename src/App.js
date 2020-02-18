@@ -3,12 +3,17 @@ import { Template } from 'govuk-react-jsx';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { Home } from './Home';
 import { ReactHookForm } from './forms/ReactHookForm';
+import { Formik } from './forms/Formik';
 
 const headerProps = {
   serviceName: 'govuk-react-jsx examples',
   navigation: [
     {
-      children: 'react-hook-form',
+      children: 'Formik',
+      to: '/forms/formik',
+    },
+    {
+      children: 'React hook form',
       to: '/forms/react-hook-form',
     },
   ],
@@ -22,8 +27,12 @@ function App() {
           <Home />
         </Route>
 
-        <Route exact path="/forms/react-hook-form">
+        <Route path="/forms/react-hook-form">
           <ReactHookForm />
+        </Route>
+
+        <Route path="/forms/formik">
+          <Formik />
         </Route>
       </Template>
     </Router>

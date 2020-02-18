@@ -27,6 +27,11 @@ function Home() {
       <h2 className="govuk-heading-l">Form demos</h2>
       <ul className="govuk-list govuk-list--bullet">
         <li>
+          <Link className="govuk-link" to="/forms/formik">
+            Formik
+          </Link>
+        </li>
+        <li>
           <Link className="govuk-link" to="/forms/react-hook-form">
             React hook form
           </Link>
