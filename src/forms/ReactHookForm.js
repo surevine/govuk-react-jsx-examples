@@ -1,10 +1,17 @@
 import React from 'react';
-import { Button, Input, ErrorSummary, Checkboxes } from 'govuk-react-jsx';
+import {
+  Button,
+  Input,
+  ErrorSummary,
+  Checkboxes,
+  Radios,
+  Select,
+  Textarea,
+  Fieldset,
+} from 'govuk-react-jsx';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { Radios } from 'govuk-react-jsx/govuk/components/radios';
-import { Select } from 'govuk-react-jsx/govuk/components/select';
-import { Textarea } from 'govuk-react-jsx/govuk/components/textarea';
+import Helmet from 'react-helmet';
 
 function ReactHookForm() {
   const FormValidationSchema = yup.object().shape({
@@ -20,7 +27,7 @@ function ReactHookForm() {
     }),
   });
 
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, errors, getValues } = useForm({
     reValidateMode: 'onSubmit',
     submitFocusError: false,
     validationSchema: FormValidationSchema,
@@ -32,6 +39,10 @@ function ReactHookForm() {
 
   return (
     <>
+      <Helmet>
+        <title>React hook form example</title>
+      </Helmet>
+
       <h1 className="govuk-heading-xl">
         react-hook-form example
         <span className="govuk-caption-m">
@@ -46,174 +57,197 @@ function ReactHookForm() {
 
       <p className="govuk-body">
         Also using <a href="https://github.com/jquense/yup">yup</a> for
-        validation. Base library work without yup, but conditional validation on
-        the email field was not possible without it.
+        validation. Base library will work without yup, but conditional
+        validation on the email field was not possible without it.
       </p>
 
-      {Object.keys(errors).length !== 0 && (
-        <ErrorSummary
-          errorList={Object.entries(errors).map(error => ({
-            href: `#${error[0]}`,
-            children: error[1].message,
-          }))}
-        />
-      )}
+      <hr className="govuk-section-break govuk-section-break--xl govuk-section-break--visible" />
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          hint={{
-            children:
-              'It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.',
-          }}
-          id="nino"
-          label={{
-            children: 'National insurance number',
-          }}
-          name="nino"
-          type="text"
-          ref={register()}
-          {...(errors.nino && {
-            errorMessage: {
-              children: errors.nino.message,
-            },
-          })}
-        />
+      <div className="govuk-grid-row">
+        <div className="govuk-grid-column-two-thirds">
+          {Object.keys(errors).length !== 0 && (
+            <ErrorSummary
+              errorList={Object.entries(errors).map(error => ({
+                href: `#${error[0]}`,
+                children: error[1].message,
+              }))}
+            />
+          )}
 
-        <Checkboxes
-          fieldset={{
-            legend: {
-              children: 'How do you want to be contacted?',
-            },
-          }}
-          idPrefix="how-contacted"
-          name="how-contacted"
-          items={[
-            {
-              ref: register(),
-              children: 'Email',
-              conditional: {
-                children: (
-                  <Input
-                    id="email"
-                    label={{
-                      children: 'Email',
-                    }}
-                    name="email"
-                    type="text"
-                    ref={register()}
-                    {...(errors.email && {
-                      errorMessage: {
-                        children: errors.email.message,
-                      },
-                    })}
-                  />
-                ),
-              },
-              value: 'email',
-            },
-          ]}
-        />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Fieldset
+              legend={{
+                children: 'Form elements',
+                className: 'govuk-fieldset__legend--l',
+              }}
+            >
+              <Input
+                hint={{
+                  children:
+                    'It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.',
+                }}
+                id="nino"
+                label={{
+                  children: 'National insurance number',
+                }}
+                name="nino"
+                type="text"
+                ref={register()}
+                {...(errors.nino && {
+                  errorMessage: {
+                    children: errors.nino.message,
+                  },
+                })}
+              />
 
-        <Radios
-          fieldset={{
-            legend: {
-              children: 'Which is your favourite colour?',
-            },
-          }}
-          idPrefix="favourite-colour"
-          name="favourite-colour"
-          {...(errors['favourite-colour'] && {
-            errorMessage: {
-              children: errors['favourite-colour'].message,
-            },
-          })}
-          items={[
-            {
-              ref: register(),
-              children: 'Red',
-              value: 'red',
-            },
-            {
-              ref: register(),
-              children: 'Green',
-              value: 'green',
-            },
-            {
-              ref: register(),
-              children: 'Yellow',
-              value: 'yellow',
-            },
-          ]}
-        />
+              <Checkboxes
+                fieldset={{
+                  legend: {
+                    children: 'How do you want to be contacted?',
+                  },
+                }}
+                idPrefix="how-contacted"
+                name="how-contacted"
+                items={[
+                  {
+                    ref: register(),
+                    children: 'Email',
+                    conditional: {
+                      children: (
+                        <Input
+                          id="email"
+                          label={{
+                            children: 'Email',
+                          }}
+                          name="email"
+                          type="text"
+                          ref={register()}
+                          {...(errors.email && {
+                            errorMessage: {
+                              children: errors.email.message,
+                            },
+                          })}
+                        />
+                      ),
+                    },
+                    value: 'email',
+                  },
+                ]}
+              />
 
-        <Radios
-          fieldset={{
-            legend: {
-              children: 'Radios with a default value',
-            },
-          }}
-          idPrefix="yes-no"
-          name="yes-no"
-          defaultValue="yes"
-          {...(errors['yes-no'] && {
-            errorMessage: {
-              children: errors['yes-no'].message,
-            },
-          })}
-          items={[
-            {
-              ref: register(),
-              children: 'Yes',
-              value: 'yes',
-            },
-            {
-              ref: register(),
-              children: 'No',
-              value: 'no',
-            },
-          ]}
-        />
+              <Radios
+                fieldset={{
+                  legend: {
+                    children: 'Which is your favourite colour?',
+                  },
+                }}
+                idPrefix="favourite-colour"
+                name="favourite-colour"
+                {...(errors['favourite-colour'] && {
+                  errorMessage: {
+                    children: errors['favourite-colour'].message,
+                  },
+                })}
+                items={[
+                  {
+                    ref: register(),
+                    children: 'Red',
+                    value: 'red',
+                  },
+                  {
+                    ref: register(),
+                    children: 'Green',
+                    value: 'green',
+                  },
+                  {
+                    ref: register(),
+                    children: 'Yellow',
+                    value: 'yellow',
+                  },
+                ]}
+              />
 
-        <Select
-          id="select-1"
-          items={[
-            {
-              children: 'GOV.UK frontend option 1',
-              value: 1,
-            },
-            {
-              children: 'GOV.UK frontend option 2',
-              value: 2,
-            },
-            {
-              children: 'GOV.UK frontend option 3',
-              disabled: true,
-              value: 3,
-            },
-          ]}
-          label={{
-            children: 'Label text goes here',
-          }}
-          name="select-1"
-          defaultValue={2}
-          ref={register()}
-        />
+              <Radios
+                fieldset={{
+                  legend: {
+                    children: 'Radios with a default value',
+                  },
+                }}
+                idPrefix="yes-no"
+                name="yes-no"
+                defaultValue="yes"
+                {...(errors['yes-no'] && {
+                  errorMessage: {
+                    children: errors['yes-no'].message,
+                  },
+                })}
+                items={[
+                  {
+                    ref: register(),
+                    children: 'Yes',
+                    value: 'yes',
+                  },
+                  {
+                    ref: register(),
+                    children: 'No',
+                    value: 'no',
+                  },
+                ]}
+              />
 
-        <Textarea
-          hint={{
-            children:
-              'Don’t include personal or financial information, eg your National Insurance number or credit card details.',
-          }}
-          id="more-detail"
-          label={{
-            children: 'Can you provide more detail?',
-          }}
-          name="more-detail"
-          ref={register()}
-        />
+              <Select
+                id="select-1"
+                items={[
+                  {
+                    children: 'GOV.UK frontend option 1',
+                    value: 1,
+                  },
+                  {
+                    children: 'GOV.UK frontend option 2',
+                    value: 2,
+                  },
+                  {
+                    children: 'GOV.UK frontend option 3',
+                    disabled: true,
+                    value: 3,
+                  },
+                ]}
+                label={{
+                  children: 'Label text goes here',
+                }}
+                name="select-1"
+                defaultValue={2}
+                ref={register()}
+              />
 
-        <Button>Submit</Button>
-      </form>
+              <Textarea
+                hint={{
+                  children:
+                    'Don’t include personal or financial information, eg your National Insurance number or credit card details.',
+                }}
+                id="more-detail"
+                label={{
+                  children: 'Can you provide more detail?',
+                }}
+                name="more-detail"
+                ref={register()}
+              />
+
+              <Button>Submit</Button>
+            </Fieldset>
+          </form>
+        </div>
+        <div className="govuk-grid-column-one-third">
+          <h2 className="govuk-heading-l">Form data</h2>
+          <p className="govuk-body">
+            With react-hook-form, this won't show values until the form is
+            submitted
+          </p>
+          <code>
+            <pre>{JSON.stringify(getValues(), null, 2)}</pre>
+          </code>
+        </div>
+      </div>
     </>
   );
 }
