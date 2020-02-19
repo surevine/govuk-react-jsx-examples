@@ -15,7 +15,7 @@ import Helmet from 'react-helmet';
 
 function ReactHookForm() {
   const FormValidationSchema = yup.object().shape({
-    nino: yup.string().required(),
+    nino: yup.string().required('Custom validation message example'),
     'favourite-colour': yup.string().required(),
     'yes-no': yup.string().required(),
     'select-1': yup.string().required(),
@@ -218,6 +218,11 @@ function ReactHookForm() {
                 name="select-1"
                 defaultValue={2}
                 ref={register()}
+                {...(errors['select-1'] && {
+                  errorMessage: {
+                    children: errors['select-1'].message,
+                  },
+                })}
               />
 
               <Textarea
@@ -231,6 +236,11 @@ function ReactHookForm() {
                 }}
                 name="more-detail"
                 ref={register()}
+                {...(errors['more-detail'] && {
+                  errorMessage: {
+                    children: errors['more-detail'].message,
+                  },
+                })}
               />
 
               <Button>Submit</Button>

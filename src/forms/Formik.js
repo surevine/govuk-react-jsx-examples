@@ -15,7 +15,7 @@ import Helmet from 'react-helmet';
 
 function Formik() {
   const FormValidationSchema = yup.object().shape({
-    nino: yup.string().required(),
+    nino: yup.string().required('Custom validation message example'),
     'favourite-colour': yup.string().required(),
     'yes-no': yup.string().required(),
     'select-1': yup.string().required(),
