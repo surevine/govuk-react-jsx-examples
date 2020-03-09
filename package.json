@@ -5,18 +5,18 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.1.1",
-    "@testing-library/react": "^9.4.0",
+    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^10.0.0",
     "formik": "^2.1.4",
-    "govuk-react-jsx": "^1.4.2",
+    "govuk-react-jsx": "^1.5.0",
     "node-sass": "^4.13.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",
-    "react-hook-form": "^4.9.6",
+    "react-hook-form": "^5.0.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-    "yup": "^0.28.1"
+    "yup": "^0.28.3"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^18.0.1",
@@ -26,8 +26,8 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react-hooks": "^2.4.0",
-    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "eslint-plugin-react": "^7.19.0",
     "eslint": "^6.8.0",
     "prettier": "^1.19.1"
   },
