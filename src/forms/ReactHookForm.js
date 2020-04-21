@@ -11,7 +11,7 @@ import {
 } from 'govuk-react-jsx';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 function ReactHookForm() {
   const FormValidationSchema = yup.object().shape({
@@ -33,7 +33,7 @@ function ReactHookForm() {
     validationSchema: FormValidationSchema,
   });
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     console.log('data', data);
   };
 
@@ -67,7 +67,7 @@ function ReactHookForm() {
         <div className="govuk-grid-column-two-thirds">
           {Object.keys(errors).length !== 0 && (
             <ErrorSummary
-              errorList={Object.entries(errors).map(error => ({
+              errorList={Object.entries(errors).map((error) => ({
                 href: `#${error[0]}`,
                 children: error[1].message,
               }))}

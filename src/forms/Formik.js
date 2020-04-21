@@ -11,7 +11,7 @@ import {
 } from 'govuk-react-jsx';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 function Formik() {
   const FormValidationSchema = yup.object().shape({
@@ -40,7 +40,7 @@ function Formik() {
     validateOnChange: false,
     validateOnBlur: false,
     validationSchema: FormValidationSchema,
-    onSubmit: values => {
+    onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
@@ -78,7 +78,7 @@ function Formik() {
         <div className="govuk-grid-column-two-thirds">
           {Object.keys(formik.errors).length !== 0 && (
             <ErrorSummary
-              errorList={Object.entries(formik.errors).map(error => ({
+              errorList={Object.entries(formik.errors).map((error) => ({
                 href: `#${error[0]}`,
                 children: error[1],
               }))}
