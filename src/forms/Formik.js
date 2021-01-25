@@ -13,6 +13,8 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Helmet } from 'react-helmet';
 
+const errorSummaryRef = React.createRef();
+
 function Formik() {
   const FormValidationSchema = yup.object().shape({
     nino: yup.string().required('Custom validation message example'),
@@ -42,6 +44,10 @@ function Formik() {
     validationSchema: FormValidationSchema,
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
+
+      if (errorSummaryRef.current) {
+        errorSummaryRef.current.focus();
+      }
     },
   });
 
@@ -78,6 +84,7 @@ function Formik() {
         <div className="govuk-grid-column-two-thirds">
           {Object.keys(formik.errors).length !== 0 && (
             <ErrorSummary
+              ref={errorSummaryRef}
               errorList={Object.entries(formik.errors).map((error) => ({
                 href: `#${error[0]}`,
                 children: error[1],
