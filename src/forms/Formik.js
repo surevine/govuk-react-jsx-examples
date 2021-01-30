@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Button,
   Input,
@@ -12,6 +12,8 @@ import {
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Helmet } from 'react-helmet';
+
+const errorSummaryRef = React.createRef();
 
 function Formik() {
   const FormValidationSchema = yup.object().shape({
@@ -42,8 +44,16 @@ function Formik() {
     validationSchema: FormValidationSchema,
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
+      formik.setSubmitting(false);
     },
   });
+
+  // Focus the error summary when people click on the submit button
+  useEffect(() => {
+    if (formik.isSubmitting && errorSummaryRef.current) {
+      errorSummaryRef.current.focus();
+    }
+  }, [formik.errors, formik.isSubmitting]);
 
   return (
     <>
@@ -78,6 +88,7 @@ function Formik() {
         <div className="govuk-grid-column-two-thirds">
           {Object.keys(formik.errors).length !== 0 && (
             <ErrorSummary
+              ref={errorSummaryRef}
               errorList={Object.entries(formik.errors).map((error) => ({
                 href: `#${error[0]}`,
                 children: error[1],
@@ -260,7 +271,7 @@ function Formik() {
                 })}
               />
 
-              <Button>Submit</Button>
+              <Button type="submit">Submit</Button>
             </Fieldset>
           </form>
         </div>
