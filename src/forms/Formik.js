@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Button,
   Input,
@@ -44,12 +44,16 @@ function Formik() {
     validationSchema: FormValidationSchema,
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
-
-      if (errorSummaryRef.current) {
-        errorSummaryRef.current.focus();
-      }
+      formik.setSubmitting(false);
     },
   });
+
+  // Focus the error summary when people click on the submit button
+  useEffect(() => {
+    if (formik.isSubmitting && errorSummaryRef.current) {
+      errorSummaryRef.current.focus();
+    }
+  }, [formik.errors, formik.isSubmitting]);
 
   return (
     <>
@@ -267,7 +271,7 @@ function Formik() {
                 })}
               />
 
-              <Button>Submit</Button>
+              <Button type="submit">Submit</Button>
             </Fieldset>
           </form>
         </div>
