@@ -115,6 +115,7 @@ function Formik() {
                 name="nino"
                 type="text"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values.nino}
                 {...(formik.errors.nino && {
                   errorMessage: {
@@ -132,6 +133,7 @@ function Formik() {
                 idPrefix="how-contacted"
                 name="how-contacted"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values['how-contacted']}
                 {...(formik.errors['how-contacted'] && {
                   errorMessage: {
@@ -151,6 +153,7 @@ function Formik() {
                           name="email"
                           type="text"
                           onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
                           value={formik.values.email}
                           {...(formik.errors.email && {
                             errorMessage: {
@@ -173,6 +176,7 @@ function Formik() {
                 idPrefix="favourite-colour"
                 name="favourite-colour"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values['favourite-colour']}
                 {...(formik.errors['favourite-colour'] && {
                   errorMessage: {
@@ -204,6 +208,7 @@ function Formik() {
                 idPrefix="yes-no"
                 name="yes-no"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values['yes-no']}
                 {...(formik.errors['yes-no'] && {
                   errorMessage: {
@@ -244,6 +249,7 @@ function Formik() {
                 }}
                 name="select-1"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values['select-1']}
                 {...(formik.errors['select-1'] && {
                   errorMessage: {
@@ -263,6 +269,7 @@ function Formik() {
                 }}
                 name="more-detail"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values['more-detail']}
                 {...(formik.errors['more-detail'] && {
                   errorMessage: {
