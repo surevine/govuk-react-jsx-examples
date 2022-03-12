@@ -1,0 +1,43 @@
+{
+  "files": {
+    "govuk-frontend-button.js": "/govuk-react-jsx-examples/static/js/govuk-frontend-button.80bb2d4e.chunk.js",
+    "govuk-frontend-button.js.map": "/govuk-react-jsx-examples/static/js/govuk-frontend-button.80bb2d4e.chunk.js.map",
+    "govuk-frontend-notification-banner.js": "/govuk-react-jsx-examples/static/js/govuk-frontend-notification-banner.67450481.chunk.js",
+    "govuk-frontend-notification-banner.js.map": "/govuk-react-jsx-examples/static/js/govuk-frontend-notification-banner.67450481.chunk.js.map",
+    "main.css": "/govuk-react-jsx-examples/static/css/main.e9b05603.chunk.css",
+    "main.js": "/govuk-react-jsx-examples/static/js/main.deace92a.chunk.js",
+    "main.js.map": "/govuk-react-jsx-examples/static/js/main.deace92a.chunk.js.map",
+    "runtime-main.js": "/govuk-react-jsx-examples/static/js/runtime-main.f8eea49e.js",
+    "runtime-main.js.map": "/govuk-react-jsx-examples/static/js/runtime-main.f8eea49e.js.map",
+    "static/js/4.ad1096da.chunk.js": "/govuk-react-jsx-examples/static/js/4.ad1096da.chunk.js",
+    "static/js/4.ad1096da.chunk.js.map": "/govuk-react-jsx-examples/static/js/4.ad1096da.chunk.js.map",
+    "static/js/5.198ceb82.chunk.js": "/govuk-react-jsx-examples/static/js/5.198ceb82.chunk.js",
+    "static/js/5.198ceb82.chunk.js.map": "/govuk-react-jsx-examples/static/js/5.198ceb82.chunk.js.map",
+    "static/js/6.7515d209.chunk.js": "/govuk-react-jsx-examples/static/js/6.7515d209.chunk.js",
+    "static/js/6.7515d209.chunk.js.map": "/govuk-react-jsx-examples/static/js/6.7515d209.chunk.js.map",
+    "static/js/7.5c8f630b.chunk.js": "/govuk-react-jsx-examples/static/js/7.5c8f630b.chunk.js",
+    "static/js/7.5c8f630b.chunk.js.map": "/govuk-react-jsx-examples/static/js/7.5c8f630b.chunk.js.map",
+    "static/js/8.696f6298.chunk.js": "/govuk-react-jsx-examples/static/js/8.696f6298.chunk.js",
+    "static/js/8.696f6298.chunk.js.map": "/govuk-react-jsx-examples/static/js/8.696f6298.chunk.js.map",
+    "static/js/9.d7446ee8.chunk.js": "/govuk-react-jsx-examples/static/js/9.d7446ee8.chunk.js",
+    "static/js/9.d7446ee8.chunk.js.map": "/govuk-react-jsx-examples/static/js/9.d7446ee8.chunk.js.map",
+    "static/js/10.fbc4c51e.chunk.js": "/govuk-react-jsx-examples/static/js/10.fbc4c51e.chunk.js",
+    "static/js/10.fbc4c51e.chunk.js.map": "/govuk-react-jsx-examples/static/js/10.fbc4c51e.chunk.js.map",
+    "static/js/11.3671296d.chunk.js": "/govuk-react-jsx-examples/static/js/11.3671296d.chunk.js",
+    "static/js/11.3671296d.chunk.js.map": "/govuk-react-jsx-examples/static/js/11.3671296d.chunk.js.map",
+    "static/js/12.3c977678.chunk.js": "/govuk-react-jsx-examples/static/js/12.3c977678.chunk.js",
+    "static/js/12.3c977678.chunk.js.map": "/govuk-react-jsx-examples/static/js/12.3c977678.chunk.js.map",
+    "index.html": "/govuk-react-jsx-examples/index.html",
+    "static/css/main.e9b05603.chunk.css.map": "/govuk-react-jsx-examples/static/css/main.e9b05603.chunk.css.map",
+    "static/js/4.ad1096da.chunk.js.LICENSE.txt": "/govuk-react-jsx-examples/static/js/4.ad1096da.chunk.js.LICENSE.txt",
+    "static/media/favicon.ico": "/govuk-react-jsx-examples/static/media/favicon.b5bada83.ico",
+    "static/media/govuk-mask-icon.svg": "/govuk-react-jsx-examples/static/media/govuk-mask-icon.b3c94baf.svg",
+    "static/media/govuk-opengraph-image.png": "/govuk-react-jsx-examples/static/media/govuk-opengraph-image.b0487e2f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f8eea49e.js",
+    "static/js/4.ad1096da.chunk.js",
+    "static/css/main.e9b05603.chunk.css",
+    "static/js/main.deace92a.chunk.js"
+  ]
+}
