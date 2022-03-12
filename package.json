@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^12.6.2",
     "formik": "^2.2.6",
     "govuk-frontend": "^4.0.0",
-    "govuk-react-jsx": "^7.0.0",
+    "govuk-react-jsx": "^7.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
